@@ -119,7 +119,7 @@ checkForAdmin()
         delay:0.7
      }}
      disabled={mobile.length!==10 || !selectedRole}
-     className={`inline-flex items-center gap-2 font-semibold py-3 px-8 rounded-2xl shadow-md transition-all duration-200 w-[200px] mt-20 ${
+     className={`inline-flex items-center gap-2 font-semibold py-3 px-8 rounded-2xl shadow-md transition-all duration-200 .w-[200px] mt-20 ${
                 selectedRole && mobile.length === 10
                   ? "bg-green-600 hover:bg-green-700 text-white"
                   : "bg-gray-300 text-gray-500 cursor-not-allowed"
