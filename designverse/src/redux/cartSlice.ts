@@ -1,6 +1,6 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
-interface IGrocery {
+interface IProduct {
     _id: string,
     name: string,
     category: string,
@@ -12,7 +12,7 @@ interface IGrocery {
     updatedAt?: Date
 }
 interface ICartSlice{
-   cartData:IGrocery[],
+   cartData:IProduct[],
    subTotal:number,
    deliveryFee:number,
    finalTotal:number
@@ -30,7 +30,7 @@ const cartSlice=createSlice({
    name:"cart",
    initialState ,
    reducers:{
-    addToCart:(state,action:PayloadAction<IGrocery>)=>{
+    addToCart:(state,action:PayloadAction<IProduct>)=>{
        state.cartData.push(action.payload) 
        cartSlice.caseReducers.calculateTotals(state)
     },
