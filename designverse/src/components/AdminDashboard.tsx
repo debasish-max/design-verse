@@ -63,8 +63,8 @@ const sevenDaysRevenue=sevenDaysOrders.reduce((sum,o)=>sum+(o.totalAmount || 0),
 
   return (
     <>
-    <AdminDashboardClient 
-    earning={{
+    <AdminDashboardClient
+      earning={{
       today:todayRevenue,
       sevenDays:sevenDaysRevenue,
       total:totalRevenue
@@ -72,7 +72,7 @@ const sevenDaysRevenue=sevenDaysOrders.reduce((sum,o)=>sum+(o.totalAmount || 0),
      stats={stats}
      chartData={chartData}
     />
-    </>
+   </>
   )
 }
 
