@@ -4,10 +4,8 @@ import connectDb from "./lib/db"
 import User from "./models/user.model"
 import bcrypt from "bcryptjs"
 import Google from "next-auth/providers/google"
-import Email from "next-auth/providers/email"
 
-
-export const { handlers, signIn, signOut, auth } = NextAuth({
+const authConfig = {
   providers: [
     Credentials({
       credentials: {
@@ -15,13 +13,12 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
         password: { label: "Password", type: "password" },
       },
       async authorize(credentials, request) {
-
         await connectDb()
         if (!credentials?.email || !credentials?.password) {
           throw new Error("Missing email or password")
         }
-        const email = credentials.email
-        const password = credentials.password
+        const email = credentials.email as string
+        const password = credentials.password as string
         const user = await User.findOne({ email })
         if (!user) {
           throw new Error("user does not exist")
@@ -36,9 +33,7 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
           name: user.name,
           role: user.role
         }
-
       }
-
     }),
     Google({
       clientId: process.env.GOOGLE_CLIENT_ID!,
@@ -46,8 +41,7 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
     })
   ],
   callbacks: {
-    // token ke ander user ka data dalta hai
-    async signIn({ user, account }) {
+    async signIn({ user, account }: any) {
       console.log(user)
       if (account?.provider == "google") {
         await connectDb()
@@ -59,13 +53,12 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
             image: user.image
           })
         }
-
         user.id = dbUser._id.toString()
         user.role = dbUser.role
       }
       return true
     },
-    jwt({ token, user, trigger, session }) {
+    jwt({ token, user, trigger, session }: any) {
       if (user) {
         token.id = user.id;
         token.name = user.name;
@@ -75,11 +68,9 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
       if (trigger == "update" && session?.user?.role) {
         token.role = session.user.role
       }
-
-
       return token
     },
-    session({ session, token }) {
+    session({ session, token }: any) {
       if (session.user) {
         session.user.id = token.id as string;
         session.user.name = token.name as string;
@@ -94,13 +85,10 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
     error: "/login"
   },
   session: {
-    strategy: "jwt",
+    strategy: "jwt" as const,
     maxAge: 10 * 24 * 60 * 60
   },
   secret: process.env.AUTH_SECRET
-})
+}
 
-
-// connect db
-//email check
-//password match
+export const { handlers, signIn, signOut, auth } = NextAuth(authConfig)
