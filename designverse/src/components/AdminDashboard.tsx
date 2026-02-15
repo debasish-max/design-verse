@@ -9,7 +9,7 @@ async function AdminDashboard() {
   await connectDb()
   const orders=await Order.find({})
   const users=await User.find({role:"user"})
-  const groceries=await Product.find({})
+  const item=await Product.find({})
 
   const totalOrders=orders.length
   const totalCustomers=users.length

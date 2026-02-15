@@ -62,10 +62,11 @@ location:{
         default:[0,0]
     }
 },
+
 // socketId:{
-//     type:String,
-//     default:null
-// },
+  //  type:String,
+    //default:null
+//},
 isOnline:{
     type:Boolean,
     default:false
