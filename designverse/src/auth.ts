@@ -72,8 +72,8 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
         token.email = user.email;
         token.role = user.role;
       }
-      if (trigger == "update") {
-        token.role = session.role
+      if (trigger == "update" && session?.user?.role) {
+        token.role = session.user.role
       }
 
 
@@ -95,7 +95,7 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
   },
   session: {
     strategy: "jwt",
-    maxAge: 10 * 24 * 60 * 60 * 1000
+    maxAge: 10 * 24 * 60 * 60
   },
   secret: process.env.AUTH_SECRET
 })
