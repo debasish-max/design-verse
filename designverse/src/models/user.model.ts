@@ -19,7 +19,7 @@ export interface IUser{
         default: number[];
     };
 },
-socketId:string | null
+// socketId:string | null
 isOnline:Boolean
   
 }
