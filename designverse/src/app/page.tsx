@@ -1,9 +1,10 @@
+import Nav from '@/components/Nav'
 import React from 'react'
 
-function page() {
+async function page() {
   return (
     <div>
-      page
+      <Nav></>
     </div>
   )
 }
