@@ -23,7 +23,7 @@ function Welcome({nextStep}:propType) {
      className='flex items-center gap-3'
       >
         <ShoppingBasket className='w-10 h-10 text-green-600'/>
-       <h1 className='text-4xl md:text-5xl font-extrabold text-green-700'>Snapcart</h1>
+       <h1 className='text-4xl md:text-5xl font-extrabold text-green-700'>DesignVerse</h1>
        
         </motion.div>
     <motion.p
