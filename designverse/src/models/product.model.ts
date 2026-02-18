@@ -19,16 +19,9 @@ const productSchema = new mongoose.Schema<IProduct>({
     category: {
         type: String,
         enum: [
-            "Fruits & Vegetables",
-            "Dairy & Eggs",
-            "Rice, Atta & Grains",
-            "Snacks & Biscuits",
-            "Spices & Masalas",
-            "Beverages & Drinks",
-            "Personal Care",
-            "Household Essentials",
-            "Instant & Packaged Food",
-            "Baby & Pet Care"
+            "Banners",
+            "Posters",
+            "Event Invitations",
         ],
         required: true
     },
@@ -42,7 +35,7 @@ const productSchema = new mongoose.Schema<IProduct>({
         type: String,
         required: true,
         enum:[
-            "kg", "g", "liter", "ml", "piece", "pack"
+            "piece"
         ]
 
     }
