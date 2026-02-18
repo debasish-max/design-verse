@@ -74,7 +74,7 @@ function AddProducts() {
                 <div className='flex flex-col items-center mb-8'>
                     <div className='flex items-center gap-3'>
                         <PlusCircle className='text-green-600 w-8 h-8' />
-                        <h1>Add Your Grocery</h1>
+                        <h1>Add Your Product</h1>
                     </div>
                     <p className='text-gray-500 text-sm mt-2 text-center'>Fill out the details below to add a new grocery item.
                     </p>
