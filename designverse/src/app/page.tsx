@@ -32,7 +32,7 @@ const plainUser=JSON.parse(JSON.stringify(user))
         <UserDashboard/>
       ):user.role=="admin"?(
         <AdminDashboard/>
-      ): <DeliveryBoy/>}
+      ):<DeliveryBoy/>}
     </>
   )
 }
