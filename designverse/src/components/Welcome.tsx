@@ -22,8 +22,8 @@ function Welcome({nextStep}:propType) {
      }}
      className='flex items-center gap-3'
       >
-        <ShoppingBasket className='w-10 h-10 text-green-600'/>
-       <h1 className='text-4xl md:text-5xl font-extrabold text-green-700'>DesignVerse</h1>
+        
+       <h1 className='text-4xl md:text-5xl font-extrabold text-green-700'>Welcome to DesignVerse</h1>
        
         </motion.div>
     <motion.p
@@ -41,8 +41,7 @@ function Welcome({nextStep}:propType) {
      }}
      className='mt-4 text-gray-700 text-lg md:text-xl max-w-lg'
     >
-Your one-stop destination for fresh groceries, organic produce, and
-daily essentials delivered right to your doorstep.
+Lorem ipsum dolor sit amet consectetur adipisicing elit. Est, commodi aspernatur.
 
     </motion.p>
 
@@ -60,7 +59,7 @@ daily essentials delivered right to your doorstep.
      }}
      className='flex items-center justify-center gap-10 mt-10'
      >
-        <ShoppingBasket className='w-24 h-24 md:w-32 md:h-32 text-green-600 drop-shadow-md'/>
+        
         <Bike className='w-24 h-24 md:w-32 md:h-32 text-orange-500 drop-shadow-md'/>
 
     </motion.div>
