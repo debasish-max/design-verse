@@ -24,11 +24,11 @@ export async function POST(req:NextRequest) {
     if(file){
      imageUrl=await uploadOnCloudinary(file)
     }
-    const grocery=await Product.create({
+    const product=await Product.create({
         name,price,category,unit,image:imageUrl
     })
      return NextResponse.json(
-                grocery,
+                product,
                 {status:200}
             )
     } catch (error) {
