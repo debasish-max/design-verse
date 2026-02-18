@@ -1,22 +1,21 @@
 import React from 'react'
-import HeroSection from './HeroSection'
 import connectDb from '@/lib/db'
-import GroceryItemCard from './GroceryItemCard'
+import ProductItemCard from './ProductItemCard'
 import { IProduct } from '@/models/product.model'
+import HeroSection from './HeroSection'
 
-async function UserDashboard({groceryList}:{groceryList:IProduct[]}) {
+async function UserDashboard({productList}:{productList:IProduct[]}) {
 await connectDb()
-const plainGrocery = JSON.parse(JSON.stringify(groceryList))
+const plainProduct = JSON.parse(JSON.stringify(productList))
 
   return (
     <>
       <HeroSection/>
-      <CategorySlider/>
       <div className='w-[90%] md:w-[80%] mx-auto mt-10'>
         <h2 className='text-2xl md:text-3xl font-bold text-green-700 mb-6 text-center'>Popular Grocery Items</h2>
-        <div className='grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-6'> 
-          {plainGrocery.map((item:any,index:number)=>(
-        <GroceryItemCard key={index} item={item}/>
+        <div className='grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-6'>
+          {plainProduct.map((item:any,index:number)=>(
+        <ProductItemCard key={index} item={item}/>
       ))}
       </div>
 
