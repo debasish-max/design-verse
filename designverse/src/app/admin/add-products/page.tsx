@@ -104,8 +104,8 @@ function AddProducts() {
                                 value={unit}
                             >
                                 <option value="">Select Unit</option>
-                                {units.map(cat => (
-                                    <option value={cat}>{cat}</option>
+                                {units.map((unit, i) => (
+                                    <option key={i} value={unit}>{unit}</option>
                                 ))}
                             </select>
                         </div>
