@@ -5,6 +5,7 @@ import React, { ChangeEvent, FormEvent, useState } from 'react'
 import { motion } from "motion/react"
 import Image from 'next/image'
 import axios from 'axios'
+import { i } from 'motion/react-client'
 const categories = [
     "Fruits & Vegetables",
     "Dairy & Eggs",
@@ -104,8 +105,8 @@ function AddProducts() {
                                 value={unit}
                             >
                                 <option value="">Select Unit</option>
-                                {units.map(cat => (
-                                    <option value={cat}>{cat}</option>
+                                {units.map((unit, j) => (
+                                    <option key={j} value={unit}>{unit}</option>
                                 ))}
                             </select>
                         </div>
