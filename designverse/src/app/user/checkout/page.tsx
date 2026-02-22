@@ -11,7 +11,7 @@ import axios from 'axios'
 
 import dynamic from 'next/dynamic'
 
-const CheckOutMap = dynamic(() => import("@/components/CheckoutMap"), { ssr: false })
+const CheckOutMap = dynamic(() => import("@/components/CheckOutMap"), { ssr: false })
 
 
 
